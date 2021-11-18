@@ -1,18 +1,39 @@
 import React, { useEffect, useState } from "react";
+import axios from './axios';
+import './Row.css';
 
-function Row(props) {
+const base_url = "https://image.tmdb.org/t/p/original";
+
+function Row({title, fetchUrl, isLargeRow}) {
     const [movies, setMovies] = useState([]);
 
     // A snippet of code which runs based on a specific condition/varaible
+    // 특정 조건/변수를 기반으로 실행되는 코드 조각
     useEffect(() => {
         // if [], run once when the row loads, and dont run again
-        // movies행이 로드될 때 한 번 실행 후 실행 안함
-    }, [movies]);
+        // 빈배열일 경우 로드될 때 한 번 실행 후 실행 안함
+        async function fetchDate() {
+            // axios에서 데이터베이스에 요청한 인스턴스를 받아온다.
+            const request = await axios.get(fetchUrl);
+            setMovies(request.data.results);
+            return request;
+        }
+        fetchDate();
+    }, [fetchUrl]); // fetchUrl의 데이터 만큼 반복
 
     return (
-        <div>
-            <h2>{props.tilte}</h2>
+        <div className="row">
+            <h2>{title}</h2>
 
+            <div className="row__posters">
+                {movies.map((movie) => (
+                    <img 
+                    key={movie.id}
+                    className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                    src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                    alt={movie.name}/>
+                ))}
+            </div>
             {/* container -> posters */}
 
         </div>

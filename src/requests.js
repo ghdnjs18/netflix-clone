@@ -1,5 +1,6 @@
-const APIKEY = '4c8c4465958623f7c1a039d436bdfb1a';
+const API_KEY = '4c8c4465958623f7c1a039d436bdfb1a';
 
+// API URL주소 정보
 const requests = {
     fetchTrending: `/trending/all/week?api_key=${API_KEY}&language=en-US`,
     fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
