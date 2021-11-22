@@ -15,8 +15,9 @@ function Row({title, fetchUrl, isLargeRow}) {
         async function fetchDate() {
             // axios에서 데이터베이스에 요청한 인스턴스를 받아온다.
             const request = await axios.get(fetchUrl);
+            // console.log(request) // 데이터를 무엇을 받는지 확인을 하고 필요한 데이터를 사용하면된다.
             setMovies(request.data.results);
-            return request;
+            // return request; // 왜 필요하지 ? 
         }
         fetchDate();
     }, [fetchUrl]); // fetchUrl의 데이터 만큼 반복

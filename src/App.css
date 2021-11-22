@@ -1,3 +1,7 @@
 * {
-  margin: 0;
+  margin: 0; /* 전체 페이지 마진 0*/
+}
+
+.App {
+  background-color: #111;
 }
