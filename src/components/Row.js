@@ -39,7 +39,8 @@ function Row({title, fetchUrl, isLargeRow}) {
         },
     };
 
-    
+    // 깃 참고
+    // https://github.com/ahmetalpergit/netflix-clone/blob/master/src/components/Row.js
     // Promises - then, catch, all, race, finally 관련 참고자료
     // https://ssungkang.tistory.com/entry/ES6-Promises-then-catch-all-race-finally
     const handleClick = (movie) => {
