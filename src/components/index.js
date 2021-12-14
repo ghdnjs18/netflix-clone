@@ -1,3 +1,8 @@
 export { default as Banner } from './Banner'
 export { default as Row } from './Row'
 export { default as Nav } from './Nav'
+export { default as Modal } from './Modal'
+export { default as Button } from './Button'
+export { default as Detail } from './Detail'
+export { default as Youtube } from './Youtube'
+export { default as movieTrailer } from './movieTrailer'
